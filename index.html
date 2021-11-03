@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://unpkg.com/vue"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="app">
+            <div class="panel">
+                <div class="score">
+                    <h3>Jogador</h3>
+                    <div class="lifeBarr">
+                        <div class="life" :style="{width:widthJogador}"></div>
+                    </div>
+                    <p>{{scoreJogador}}%</p>
+                </div>
+                <div class="score">
+                    <h3>Monstro</h3>
+                    <div class="lifeBarr">
+                        <div class="life" :style="{width:widthMonstro}"></div>
+                    </div>
+                    <p>{{scoreMonstro}}%</p>
+                </div>
+            </div>
+            <div class="panel" v-if="resultadoJogo">
+                <div class="resultado">
+                    <p>{{resultadoJogo}}</p>
+                </div>                
+            </div>
+            <div class="panel">
+                <div class="buttons">
+                    <template v-if="iniciarJogo">
+                        <button 
+                            class="button" 
+                            style="background-color: blue; color: honeydew;"
+                            @click="iniciarJogo = !iniciarJogo"                            
+                        >INICIAR JOGO</button>
+                    </template>
+                    <template v-else>
+                        <button 
+                            class="button" 
+                            style="background-color: rgb(167, 34, 34); color: honeydew;"
+                            @click="ataque"
+                        >ATAQUE</button>
+                        <button 
+                            class="button" 
+                            style="background-color: yellow;"
+                            @click="ataqueEspecial"
+                        >ATAQUE ESPECIAL</button>
+                        <button 
+                            class="button" 
+                            style="background-color: green; color: honeydew;"
+                            @click="cura"
+                        >CURAR</button>
+                        <button 
+                            class="button" 
+                            style="background-color: grey;"
+                            @click="desistir"
+                        >DESISTIR</button>
+                    </template>
+                </div>
+            </div>
+            <div class="panel jogadasCol">
+                <div class="jogadas jogadasJogador">
+                    <p></p>
+                </div>
+                <div class="jogadas jogadasMonstro">
+                    <p></p>
+                </div>
+            </div>
+        </div>        
+    </body>
+    <script src="app.js"></script>
+</html>
