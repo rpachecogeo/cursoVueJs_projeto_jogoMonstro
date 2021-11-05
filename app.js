@@ -6,7 +6,9 @@ new Vue({
         widthJogador: '100%',
         widthMonstro: '100%',
         resultadoJogo: '',
-        iniciarJogo: true
+        iniciarJogo: true,
+        jogadasJogador: [],
+        jogadasMonstro: []
     },
     methods: {
         desistir(){
